@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuarios</title>
+    <link href="./../css/bootstrap.min.css" rel="stylesheet">
+    <link href="./../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./../css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body style="background: linear-gradient(to bottom right, #162644, #ffffff)"
+    onload="document.querySelectorAll('.style-app-container')[0].classList.add('show')">
+    <div id="app_menu"></div>
+    <div class="container">
+        <div class="row" id="loader_service">
+            <div class="col-md-4 offset-md-4 d-flex text-center align-items-center style-app-container"
+                style="background-color: #162644;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img style="width: 80%;"
+                            src="https://www.uniminuto.edu/sites/default/files/logo-para-web-2024.png"
+                            alt="Imagen de ejemplo">
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <div class="spinner-grow text-light" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        <div class="spinner-grow text-light" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        <div class="spinner-grow text-light" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        <div class="spinner-grow text-light" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center" id="app" style="display: none;">
+                <div class="col-md-12 style-app-container">
+                    <h3 class="text-center mb-4">Panel de control</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-3 text-center"><h4>Motos</h4></div>
+                                                    
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-3 mb-2">
+                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Disponibilidad</div>
+                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                                                        </div>
+                                                        <div class="col mr-3 mb-2">
+                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Capacidad</div>
+                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                                                        </div>
+                                                        <div class="col mr-3 mb-2">
+                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Uso</div>
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="progress progress-sm mr-2">
+                                                                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-motorcycle fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-3 text-center"><h4>Carros</h4></div>
+                                                    
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col mr-3 mb-2">
+                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Disponibilidad</div>
+                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                                                        </div>
+                                                        <div class="col mr-3 mb-2">
+                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Capacidad</div>
+                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                                                        </div>
+                                                        <div class="col mr-3 mb-2">
+                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Uso</div>
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="progress progress-sm mr-2">
+                                                                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-car fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+    <script src="./../js/jquery-3.7.1.min.js"></script>
+    <script src="./../js/bootstrap.bundle.min.js"></script>
+    <script src="./../js/axios.min.js"></script>
+    <script src="./../js/sweetAlert.js"></script>
+    <script src="./../js/config_global.js"></script>
+    <script src="./../js/script_render_menu.js"></script>
+    <link href="./../css/app.css" rel="stylesheet">
+    <script src="./../js/script_dashboard.js"></script>
+    <div id="style_add"></div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  
+
+</head>
+
+<body style="background: linear-gradient(to bottom right, #162644, #ffffff)" onload="document.querySelectorAll('.style-app-container')[0].classList.add('show')">
+  <div class="container">
+    <div class="row" id="loader_service">
+      <div class="col-md-4 offset-md-4 d-flex text-center align-items-center style-app-container" style="background-color: #162644;">
+        <div class="row">
+          <div class="col-md-12">
+            <img style="width: 80%;" src="https://www.uniminuto.edu/sites/default/files/logo-para-web-2024.png" alt="Imagen de ejemplo">
+          </div>
+          <div class="col-md-12 text-center">
+            <div class="spinner-grow text-light" role="status">
+              <span class="sr-only"></span>
+            </div>
+            <div class="spinner-grow text-light" role="status">
+              <span class="sr-only"></span>
+            </div>
+            <div class="spinner-grow text-light" role="status">
+              <span class="sr-only"></span>
+            </div>
+            <div class="spinner-grow text-light" role="status">
+              <span class="sr-only"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center" id="app" style="display: none;">
+      <div class="col-md-4 style-app-container">
+        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+        <hr>
+        <div>
+          <div class="mb-3">
+            <label for="usuario" class="form-label">Correo electronico</label>
+            <input type="text" class="form-control" id="usuario" placeholder="Ingresa su correo electronico">
+          </div>
+          <div class="mb-3">
+            <label for="clave" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="clave" placeholder="Ingresa tu contraseña">
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary" id="ingresar">🔐 Iniciar Sesión</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 image-container d-flex justify-content-center align-items-center style-app-container" style="background-color: #162644;">
+        <img style="width: 80%;" src="https://www.uniminuto.edu/sites/default/files/logo-para-web-2024.png" alt="Imagen de ejemplo">
+      </div>
+    </div>
+  </div>
+  <script src="./js/jquery-3.7.1.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/axios.min.js"></script>
+  <script src="./js/sweetAlert.js"></script>
+  <script src="./js/config_global.js"></script>
+  <script src="./js/script_login.js"></script>
+  <link href="./css/app.css" rel="stylesheet">
+</body>
+
+</html>

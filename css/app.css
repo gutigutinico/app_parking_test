@@ -1,0 +1,91 @@
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+
+.style-app-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    /* Oculta el formulario al inicio */
+    transform: translateY(20px);
+    /* Desplaza el formulario hacia abajo */
+    transition: opacity 1.1s ease, transform 1.1s ease;
+    /* Transición suave */
+}
+
+.style-app-container.show {
+    opacity: 1;
+    /* Muestra el formulario */
+    transform: translateY(0);
+    /* Restablece la posición */
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #162644;
+    border-color: #162644;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    /* Transición en hover */
+}
+
+.btn-primary:hover {
+    background-color: #162644e7;
+    border-color: #162644e7;
+}
+
+body {
+    background: linear-gradient(to bottom right, #162644, #ffffff)
+}
+
+div[aria-describedby='swal2-html-container'] {
+    border-radius: 0px;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+    background-color: #162644;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:hover {
+    background-color: #162644e7;
+    border-color: #162644e7;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+    background-color: #162644e7;
+    border-color: #162644e7;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+    box-shadow: 0 0 0 0px #162644e7;
+}
+
+div:where(.swal2-container) h2:where(.swal2-title){
+    font-size:var(--bs-body-font-size);
+}
+
+
+nav {
+    opacity: 0;
+    /* Oculta el formulario al inicio */
+    /* Desplaza el formulario hacia abajo */
+    transition: opacity 1.1s ease;
+}
+
+nav.show {
+    opacity: 1;
+}
+
+.offcanvas-header, .bg-dark{
+    background-color: #162644e7 !important;
+}
+

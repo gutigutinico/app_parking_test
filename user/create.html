@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuarios</title>
+    <link href="./../css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background: linear-gradient(to bottom right, #162644, #ffffff)"
+    onload="document.querySelectorAll('.style-app-container')[0].classList.add('show')">
+    <div id="app_menu"></div>
+    <div class="container">
+        <div class="row" id="loader_service">
+            <div class="col-md-4 offset-md-4 d-flex text-center align-items-center style-app-container"
+                style="background-color: #162644;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img style="width: 80%;"
+                            src="https://www.uniminuto.edu/sites/default/files/logo-para-web-2024.png"
+                            alt="Imagen de ejemplo">
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <div class="spinner-grow text-light" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        <div class="spinner-grow text-light" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        <div class="spinner-grow text-light" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        <div class="spinner-grow text-light" role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center" id="app" style="display: none;">
+                <div class="col-md-10 style-app-container">
+                    <h3 class="text-center mb-4">Registrar nuevo usuario</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="usuario" class="form-label">Correo electronico <span
+                                    style="color: red;">(*)</span></label>
+                            <input type="text" class="form-control" id="email"
+                                placeholder="Ingresa el correo electronico ⌨️">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="usuario" class="form-label">Tipo de usuario <span
+                                    style="color: red;">(*)</span></label>
+                            <select class="form-select" aria-label="Tipo de usuario" id="id_tipo_usuario">
+                                <option value="" selected>Seleccione el tipo de usuario </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-12">
+                            <label for="usuario" class="form-label">Nombres y apellidos <span
+                                    style="color: red;">(*)</span></label>
+                            <input type="text" class="form-control" id="name"
+                                placeholder="Ingresa los nombres y apellidos ⌨️">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="clave" class="form-label">Contraseña <span
+                                    style="color: red;">(*)</span></label>
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Ingresa la contraseña ⌨️">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="clave" class="form-label">Confirmación de la contraseña <span
+                                    style="color: red;">(*)</span></label>
+                            <input type="password" class="form-control" id="c_password"
+                                placeholder="Ingresa la confirmación de la contraseña ⌨️">
+                        </div>
+
+                        <div class="text-center">
+                            <hr>
+                            <button type="button" class="btn btn-primary" id="ingresar">💾 Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./../js/jquery-3.7.1.min.js"></script>
+    <script src="./../js/bootstrap.bundle.min.js"></script>
+    <script src="./../js/axios.min.js"></script>
+    <script src="./../js/sweetAlert.js"></script>
+    <script src="./../js/config_global.js"></script>
+    <script src="./../js/script_render_menu.js"></script>
+    <link href="./../css/app.css" rel="stylesheet">
+    <script src="./../js/script_create_user.js"></script>
+    <div id="style_add"></div>
+</body>
+
+</html>
