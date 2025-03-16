@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de usuarios</title>
+    <title>Dashboard</title>
     <link href="./../css/bootstrap.min.css" rel="stylesheet">
     <link href="./../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="./../css/sb-admin-2.min.css" rel="stylesheet">
@@ -43,80 +43,38 @@
         <div class="container">
             <div class="row justify-content-center" id="app" style="display: none;">
                 <div class="col-md-12 style-app-container">
-                    <h3 class="text-center mb-4">Panel de control</h3>
+                    <div class="row bg-dark text-white text-center shadow">
+                        <h4 id="seleccion_sede_modalLabel">Panel de control</h4>
+                    </div>
                     <hr>
                     <div class="row">
+                        <div id="quesedesoy">
+
+                        </div>
+                        <hr>
                         <div class="mb-3 col-md-12">
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="card border-left-info shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-3 text-center"><h4>Motos</h4></div>
-                                                    
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-3 mb-2">
-                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Disponibilidad</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
-                                                        </div>
-                                                        <div class="col mr-3 mb-2">
-                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Capacidad</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
-                                                        </div>
-                                                        <div class="col mr-3 mb-2">
-                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Uso</div>
-                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="progress progress-sm mr-2">
-                                                                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-motorcycle fa-2x text-gray-300"></i>
-                                                </div>
+                            <div class="row" id="loader_carga_dashboard_sede">
+                                <div class="col-md-6 offset-md-3 d-flex text-center align-items-center d-flex justify-content-center">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <div class="spinner-grow text-dark" role="status">
+                                                <span class="sr-only"></span>
+                                            </div>
+                                            <div class="spinner-grow text-dark" role="status">
+                                                <span class="sr-only"></span>
+                                            </div>
+                                            <div class="spinner-grow text-dark" role="status">
+                                                <span class="sr-only"></span>
+                                            </div>
+                                            <div class="spinner-grow text-dark" role="status">
+                                                <span class="sr-only"></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="card border-left-info shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-3 text-center"><h4>Carros</h4></div>
-                                                    
-                                                    <div class="row no-gutters align-items-center">
-                                                        <div class="col mr-3 mb-2">
-                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Disponibilidad</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
-                                                        </div>
-                                                        <div class="col mr-3 mb-2">
-                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Capacidad</div>
-                                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
-                                                        </div>
-                                                        <div class="col mr-3 mb-2">
-                                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Uso</div>
-                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                        </div>
-                                                        <div class="col">
-                                                            <div class="progress progress-sm mr-2">
-                                                                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <i class="fas fa-car fa-2x text-gray-300"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
+                            </div>
+                            <div class="row" id="dashboard_por_sede_vehiculos">
+                                
                             </div>
                         </div>
                     </div>

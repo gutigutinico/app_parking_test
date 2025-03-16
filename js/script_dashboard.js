@@ -24,3 +24,50 @@ axios({
 }).catch(function (error) {
   
 });
+
+function obtenerInfoSede(){
+  document.querySelector("#quesedesoy").innerHTML = ""
+  axios({
+      method: 'get',
+      url: API_URL_SCHEMA.replace("{SERVICE}", "sedes/info/"+localStorage.getItem("sede_seleccionada"))
+  }).then((response) => {
+    try{
+
+      if(response.data == ""){
+        document.querySelector("#quesedesoy").insertAdjacentHTML("beforeend",
+          `<div class="text-center"><b class='text-center'>No ha seleccionado ninguna sede</b></div>`);
+          document.querySelector("#loader_carga_dashboard_sede").style.display = "none"
+          localStorage.setItem("sede_seleccionada", "")
+      }else{
+        document.querySelector("#quesedesoy").insertAdjacentHTML("beforeend",
+        `<div class="container col-md-12">
+            <div class="row shadow" style="margin-bottom: 3px;">
+                <div class="col-md-4 bg-dark text-white">
+                    <h5 class="text-center">Sede</h5>
+                </div>
+                <div class="col-md-7">
+                    <h6 class="text-center">${response.data.nombre}</h6>
+                </div>
+            </div>
+
+            <div class="row shadow">
+                <div class="col-md-4 bg-dark text-white">
+                    <h5 class="text-center">Dirección</h6>
+                </div>
+                <div class="col-md-7">
+                    <h6 class="text-center">${response.data.direccion}</h6>
+                </div>
+            </div>
+        </div>`);
+        cargarEstadoDeOcupacionSegunSede()
+      }
+    }catch(e){
+    
+    }
+  }).catch(function (error) {
+  
+  });
+}
+
+
+obtenerInfoSede()

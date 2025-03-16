@@ -89,3 +89,9 @@ nav.show {
     background-color: #162644e7 !important;
 }
 
+.border-left-info {
+    border-left: .25rem solid #162644 !important;
+}
+.text-info, .text-success{
+    color: #162644 !important;
+}
