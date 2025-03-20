@@ -48,9 +48,9 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div id="quesedesoy">
-
-                        </div>
+                        <div id="quesedesoy"></div>
+                        
+                        <div id="controles"></div>
                         <hr>
                         <div class="mb-3 col-md-12">
                             <div class="row" id="loader_carga_dashboard_sede">
@@ -94,6 +94,54 @@
     <link href="./../css/app.css" rel="stylesheet">
     <script src="./../js/script_dashboard.js"></script>
     <div id="style_add"></div>
+    <div class="modal fade" id="formulario_entrada" tabindex="-1" aria-labelledby="formulario_entradaLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h1 class="modal-title fs-5" id="formulario_entradaLabel">Entrada de vehiculo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-top: 0px;filter: invert(1); border: 1px solid black;"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-4 mb-3">
+                            <input type="text" readonly class="form-control-plaintext text-center" value="Placa del vehiculo">
+                        </div>
+                        <div class="col-lg-4 mb-3">
+                            <input type="text" class="form-control text-center text-uppercase" id="placa_vehiculo_entrada" placeholder="">
+                        </div>
+                        <div class="col-lg-4 mb-3 text-center">
+                            <button type="button" class="btn btn-primary" onclick="obtenerVehiculo('placa_vehiculo_entrada','cuerpo_modal_vehiculo_entrada')" id="boton_buscar_para_entrada_vehiculo">Buscar vehiculo</button>
+                        </div>
+                    </div>
+                    <div id="cuerpo_modal_vehiculo_entrada"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="formulario_salida" tabindex="-1" aria-labelledby="formulario_entradaLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white" >
+                    <h1 class="modal-title fs-5" id="formulario_entradaLabel">Salida de vehiculo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-top: 0px;filter: invert(1);border: 1px solid black;"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-4 mb-3">
+                            <input type="text" readonly class="form-control-plaintext text-center" value="Placa del vehiculo">
+                        </div>
+                        <div class="col-lg-4 mb-3">
+                            <input type="text" class="form-control text-center text-uppercase" id="placa_vehiculo_salida" placeholder="">
+                        </div>
+                        <div class="col-lg-4 mb-3 text-center">
+                            <button type="button" class="btn btn-primary" onclick="obtenerVehiculo('placa_vehiculo_salida','cuerpo_modal_vehiculo_salida')" id="boton_buscar_para_salida_vehiculo">Buscar vehiculo</button>
+                        </div>
+                    </div>
+                    <div id="cuerpo_modal_vehiculo_salida"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

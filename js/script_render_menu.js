@@ -10,21 +10,19 @@ function getHTMLMenuApp(inyect) {
             </div>
             <div class="modal-body">
                 <div class="row" id="loader_carga_seleccion_sede">
-                    <div class="col-md-12 offset-md-4 d-flex text-center align-items-center">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <div class="spinner-grow text-dark" role="status">
-                                    <span class="sr-only"></span>
-                                </div>
-                                <div class="spinner-grow text-dark" role="status">
-                                    <span class="sr-only"></span>
-                                </div>
-                                <div class="spinner-grow text-dark" role="status">
-                                    <span class="sr-only"></span>
-                                </div>
-                                <div class="spinner-grow text-dark" role="status">
-                                    <span class="sr-only"></span>
-                                </div>
+                    <div class="col-md-12 d-flex text-center align-items-center">
+                        <div class="col-md-12 text-center">
+                            <div class="spinner-grow text-dark" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                            <div class="spinner-grow text-dark" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                            <div class="spinner-grow text-dark" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                            <div class="spinner-grow text-dark" role="status">
+                                <span class="sr-only"></span>
                             </div>
                         </div>
                     </div>
@@ -161,7 +159,59 @@ function renderMenu(role, nameUser) {
     },50)
 }
 
+function cargaInterfazControlDashboardNormal(text){
+    
+    insert = `<hr>
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-4 mb-3 text-center">
+                <button class="btn btn-primary" type="button" onclick="location.reload()">Recargar panel</button>
+            </div>
+               
+    `
 
+    document.querySelector("#controles").innerHTML = ""
+
+    if(role == 2 && text != ""){
+        insert += `
+                <div class="col-md-4 mb-3 text-center">
+                    <button onclick="limpliarFormulariosEntradasSalidas('placa_vehiculo_entrada','cuerpo_modal_vehiculo_entrada')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formulario_entrada">
+                        Entrada de vehiculo
+                    </button>
+                </div>
+                <div class="col-md-4 mb-3 text-center">
+                    <button onclick="limpliarFormulariosEntradasSalidas('placa_vehiculo_salida','cuerpo_modal_vehiculo_salida')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formulario_salida">
+                        Salida de vehiculo
+                    </button>
+                </div>
+            </div>
+        </div>
+        `
+    }else{
+        insert += `
+            </div>
+        </div>
+        `
+    }
+
+    document.querySelector("#controles").insertAdjacentHTML('beforeend', insert)
+
+}
+
+function limpliarFormulariosEntradasSalidas(campo, content){
+    console.log([campo, content])
+    document.getElementById(campo).value = "";
+    document.getElementById(content).innerHTML = ""
+}
+
+function cerrarElOtroCollapse(otro){
+    const elemento = document.getElementById(otro);
+    if (elemento.classList.contains("show")) {
+        
+        elemento.classList.remove("show")
+
+    }
+}
 
 function cargarEstadoDeOcupacionSegunSede(){
 
@@ -232,12 +282,12 @@ function cargarEstadoDeOcupacionSegunSede(){
             </div>`
         })
         if(text == ""){
-            document.querySelector("#dashboard_por_sede_vehiculos").insertAdjacentHTML("beforeend", "<b class='text-center'>No vehiculos para esta sede</b>")
+            document.querySelector("#dashboard_por_sede_vehiculos").insertAdjacentHTML("beforeend", "<b class='text-center'>No tipos de vehiculos parametrizados para esta sede</b>")
         }else{
             document.querySelector("#dashboard_por_sede_vehiculos").insertAdjacentHTML("beforeend", text)
         }
         document.querySelector("#loader_carga_dashboard_sede").style.display = "none"
-        console.log(response.data)
+        cargaInterfazControlDashboardNormal(text)
     }catch(e){
     
     }

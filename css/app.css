@@ -95,3 +95,9 @@ nav.show {
 .text-info, .text-success{
     color: #162644 !important;
 }
+
+.collapsing{transition:none !important}
+
+.btn-primary:focus{
+    background-color: #162644 !important;
+}
