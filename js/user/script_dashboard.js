@@ -28,6 +28,13 @@ axios({
 
 function obtenerInfoSede(){
   document.querySelector("#quesedesoy").innerHTML = ""
+
+  if(localStorage.getItem("sede_seleccionada") == '' || localStorage.getItem("sede_seleccionada") == null || localStorage.getItem("sede_seleccionada") == undefined){
+    document.querySelector("#quesedesoy").insertAdjacentHTML("beforeend",
+    `<div class="text-center"><b class='text-center'>No ha seleccionado ninguna sede</b></div>`);
+    document.querySelector("#loader_carga_dashboard_sede").style.display = "none"
+    localStorage.setItem("sede_seleccionada", '');
+  }
   axios({
       method: 'get',
       url: API_URL_SCHEMA.replace("{SERVICE}", "sedes/info/"+localStorage.getItem("sede_seleccionada"))
@@ -35,10 +42,7 @@ function obtenerInfoSede(){
     try{
 
       if(response.data == ""){
-        document.querySelector("#quesedesoy").insertAdjacentHTML("beforeend",
-          `<div class="text-center"><b class='text-center'>No ha seleccionado ninguna sede</b></div>`);
-          document.querySelector("#loader_carga_dashboard_sede").style.display = "none"
-          localStorage.setItem("sede_seleccionada", "")
+        
       }else{
         document.querySelector("#quesedesoy").insertAdjacentHTML("beforeend",
         `<div class="container col-md-12">

@@ -64,11 +64,22 @@ function getHTMLMenuApp(inyect) {
 
 function renderItemAdmin(nameUser){
     let inyect = "";
-
     inyect += `
             <li class="nav-item">
-                <a class="nav-link active" href="javascript:void(0)" onclick="abriModalSeleccionarSede()"><span>&nbsp;●&nbsp;</span> Seleccionar sede</a>
+                <a class="nav-link" href="${ROOT_DIR}user/dashboard.html"><span>&nbsp;●&nbsp;</span> Panel de control</a>
             </li>`
+    inyect += `
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" onclick="abriModalSeleccionarSede()"><span>&nbsp;●&nbsp;</span> Seleccionar sede</a>
+            </li>`
+    inyect += `<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span>&nbsp;●&nbsp;</span> Reportes
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="${ROOT_DIR}reportes/reporte_registros_diarios.html"> <span>➕</span> Registros diarios </a></li>
+                    </ul>
+                </li>`
     inyect += `<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span>&nbsp;●&nbsp;</span> Usuarios
@@ -221,76 +232,76 @@ function cargarEstadoDeOcupacionSegunSede(){
         method: 'get',
         url: API_URL_SCHEMA.replace("{SERVICE}", "sedes/ocupacion/"+localStorage.getItem("sede_seleccionada"))
     }).then((response) => {
-    try{
+        try{
 
-        const tipoIcon = function (text){
-            if(text == "Moto"){
-                return "fa-motorcycle";
+            const tipoIcon = function (text){
+                if(text == "Moto"){
+                    return "fa-motorcycle";
+                }
+                if(text == "Carro"){
+                    return "fa-car";
+                }
+                return "";
             }
-            if(text == "Carro"){
-                return "fa-car";
-            }
-            return "";
-        }
 
-        const porcentaje = function(a, b){
-            if(b == 0){
-                return 0
-            }else{
-                return parseInt(100 * a /b)
+            const porcentaje = function(a, b){
+                if(b == 0){
+                    return 0
+                }else{
+                    return parseInt(100 * a /b)
+                }
             }
-        }
-        let text = ""
-        response.data.forEach(elemento => {
-            text += `<div class="col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-3 text-center"><h4>${elemento.tipo_de_vehiculo.tipo}s</h4></div>
-                                
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-3 mb-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Disponibilidad</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${ elemento.sede_x_tipo_vehiculo.maximo - elemento.gestion_entrada_salida }</div>
-                                    </div>
-                                    <div class="col mr-3 mb-2">
-                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Capacidad</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">${elemento.sede_x_tipo_vehiculo.maximo}</div>
-                                    </div>
-                                    <div class="col mr-3 mb-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Uso</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${elemento.gestion_entrada_salida}</div>
-                                    </div>
-                                    <div class="col mr-3 mb-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Uso (%)</div>
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${porcentaje(elemento.gestion_entrada_salida, elemento.sede_x_tipo_vehiculo.maximo)}%</div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: ${porcentaje(elemento.gestion_entrada_salida, elemento.sede_x_tipo_vehiculo.maximo)}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            let text = ""
+            response.data.forEach(elemento => {
+                text += `<div class="col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-3 text-center"><h4>${elemento.tipo_de_vehiculo.tipo}s</h4></div>
+                                    
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-3 mb-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Disponibilidad</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${ elemento.sede_x_tipo_vehiculo.maximo - elemento.gestion_entrada_salida }</div>
+                                        </div>
+                                        <div class="col mr-3 mb-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Capacidad</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">${elemento.sede_x_tipo_vehiculo.maximo}</div>
+                                        </div>
+                                        <div class="col mr-3 mb-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Uso</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${elemento.gestion_entrada_salida}</div>
+                                        </div>
+                                        <div class="col mr-3 mb-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Uso (%)</div>
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${porcentaje(elemento.gestion_entrada_salida, elemento.sede_x_tipo_vehiculo.maximo)}%</div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="progress progress-sm mr-2">
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: ${porcentaje(elemento.gestion_entrada_salida, elemento.sede_x_tipo_vehiculo.maximo)}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas ${tipoIcon(elemento.tipo_de_vehiculo.tipo)} fa-2x text-gray-300"></i>
+                                <div class="col-auto">
+                                    <i class="fas ${tipoIcon(elemento.tipo_de_vehiculo.tipo)} fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>`
-        })
-        if(text == ""){
-            document.querySelector("#dashboard_por_sede_vehiculos").insertAdjacentHTML("beforeend", "<b class='text-center'>No tipos de vehiculos parametrizados para esta sede</b>")
-        }else{
-            document.querySelector("#dashboard_por_sede_vehiculos").insertAdjacentHTML("beforeend", text)
+                </div>`
+            })
+            if(text == ""){
+                document.querySelector("#dashboard_por_sede_vehiculos").insertAdjacentHTML("beforeend", "<b class='text-center'>No tipos de vehiculos parametrizados para esta sede</b>")
+            }else{
+                document.querySelector("#dashboard_por_sede_vehiculos").insertAdjacentHTML("beforeend", text)
+            }
+            document.querySelector("#loader_carga_dashboard_sede").style.display = "none"
+            cargaInterfazControlDashboardNormal(text)
+        }catch(e){
+        
         }
-        document.querySelector("#loader_carga_dashboard_sede").style.display = "none"
-        cargaInterfazControlDashboardNormal(text)
-    }catch(e){
-    
-    }
     }).catch(function (error) {
     
     });
