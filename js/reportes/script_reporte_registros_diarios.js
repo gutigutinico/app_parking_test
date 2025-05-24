@@ -58,7 +58,7 @@ document.querySelector("#ingresar").addEventListener("click", () => {
             sede: sedeSeleccionada
         }   
     }).then((response) => {
-        window.open(API_URL_SCHEMA.replace("{SERVICE}", "reportes/registros_diarios_pdf")+"/"+sedeSeleccionada+"/"+fecha, "_blank")
+        location.href = API_URL_SCHEMA.replace("{SERVICE}", "reportes/registros_diarios_pdf")+"/"+sedeSeleccionada+"/"+fecha
     }).catch(function (error) {
         console.log(error)
         if(error.response.status == 404){
