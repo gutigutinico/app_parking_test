@@ -82,14 +82,6 @@ function renderItemAdmin(nameUser){
                 </li>`
     inyect += `<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span>&nbsp;●&nbsp;</span> Usuarios
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="${ROOT_DIR}user/create.html"> <span>➕</span> Nuevo usuario</a></li>
-                    </ul>
-                </li>`
-    inyect += `<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         👨‍💻 ${nameUser}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
