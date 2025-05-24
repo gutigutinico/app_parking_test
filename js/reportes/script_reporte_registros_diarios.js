@@ -46,6 +46,9 @@ document.querySelector("#ingresar").addEventListener("click", () => {
         })
         return;
     }
+
+    
+
     axios({
         method: 'post',
         url: API_URL_SCHEMA.replace("{SERVICE}", "reportes/registros_diarios"),
@@ -53,18 +56,9 @@ document.querySelector("#ingresar").addEventListener("click", () => {
         data: {
             fecha: fecha,
             sede: sedeSeleccionada
-        }
+        }   
     }).then((response) => {
-        console.log(response)
-        // Crear un enlace de descarga
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Reporte de registro diario '+fecha+".pdf"; // Nombre del archivo que se descargará
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url); // Limpiar memoria
+        window.open(API_URL_SCHEMA.replace("{SERVICE}", "reportes/registros_diarios_pdf")+"/"+sedeSeleccionada+"/"+fecha, "_blank")
     }).catch(function (error) {
         console.log(error)
         if(error.response.status == 404){
